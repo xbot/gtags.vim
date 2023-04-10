@@ -99,7 +99,7 @@
 if exists("loaded_gtags_cscope")
     finish
 endif
-if !has("cscope")
+if !has("cscope") && !(has("nvim") && (split(api_info().version.major, '')[0] * 10000 + split(api_info().version.minor, '')[0] * 100 + split(api_info().version.patch, '')[0]) >= 900)
     echohl WarningMsg |
            \ echomsg 'Gtags-cscope: ' . 'This vim does not include cscope support.' |
            \ echohl None
